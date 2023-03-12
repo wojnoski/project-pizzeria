@@ -71,6 +71,11 @@
     cart: {
       defaultDeliveryFee: 20,
     },
+    db: {
+      url: '//localhost:3131',
+      products: 'products',
+      orders: 'orders',
+    },
   };
 
   const templates = {
@@ -115,7 +120,7 @@
     }
     initAccordion(){
       const thisProduct = this;
-    /* find the clickable trigger (the element that should react to clicking) */
+      /* find the clickable trigger (the element that should react to clicking) */
       thisProduct.accordionTrigger.addEventListener('click', function(event){
       /* START: add event listener to clickable trigger on event click */
         /* prevent default action for event */
@@ -125,7 +130,7 @@
         console.log('Active: ', ActiveProduct);
         /* if there is active product and it's not thisProduct.element, remove class active from it */
         if (ActiveProduct != null && ActiveProduct != thisProduct.element){
-            ActiveProduct.classList.remove(classNames.menuProduct.wrapperActive);
+          ActiveProduct.classList.remove(classNames.menuProduct.wrapperActive);
         }
         /* toggle active class on thisProduct.element */
         thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
@@ -200,7 +205,7 @@
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
       thisProduct.amountWidgetElem.addEventListener('Updated', function(){
         thisProduct.processOrder();
-      })
+      });
     }
     addToCart(){
       const thisProduct = this;
@@ -417,12 +422,25 @@
       const thisApp = this;
       console.log('thisAppdata: ', thisApp.data);
       for (let productData in thisApp.data.products){
-        new Product(productData, thisApp.data.products[productData]);
+        new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
       }
     },
     initData: function(){
       const thisApp = this;
-      thisApp.data = dataSource;
+      thisApp.data = {};
+      const url = settings.db.url + '/' + settings.db.products;
+      fetch(url)
+        .then(function(rawResponse){
+          return rawResponse.json();
+        })
+        .then(function(parsedResponse){
+          console.log('parsed Response', parsedResponse);
+          /* save parsedResponse as thisApp.data.products */
+          thisApp.data.products = parsedResponse;
+          /* execute initMenu method */
+          thisApp.initMenu();
+        });
+      console.log('thisApp.data', JSON.stringify(thisApp.data));
     },
     initCart: function(){
       const thisApp = this;
@@ -437,9 +455,8 @@
       console.log('settings:', settings);
       console.log('templates:', templates);
       thisApp.initData();
-      thisApp.initMenu();
       thisApp.initCart();
     },
-  }
+  };
   app.init();
 }
