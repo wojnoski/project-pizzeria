@@ -12,7 +12,6 @@
         "test": "npm-run-all test:*",
         "test:html": "html-validate src/*.html",
         "test:js": "eslint src/js/",
-        "test:scss": "stylelint src/sass/",
         "build": "npm-run-all build:* test",
         "build:clean": "rimraf dist && mkdirp dist",
         "build:copy": "copyfiles -a -u 1 -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" dist",
@@ -44,10 +43,13 @@
         "postcss-scss": "^4.0.4",
         "rimraf": "^3.0.2",
         "sass": "^1.44.0",
-        "stylelint": "^9.10.1",
-        "stylelint-scss": "^3.5.4"
+        "stylelint": "^14.11.0",
+        "stylelint-config-standard-scss": "^5.0.0",
+        "stylelint-scss": "^4.3.0"
     },
     "dependencies": {
-        "json-server": "^0.17.2"
+        "flatpickr": "^4.6.13",
+        "json-server": "^0.17.1",
+        "rangeslider-pure": "^0.4.11"
     }
 }
