@@ -34,3 +34,21 @@
   }
 
 }
+
+.main-nav {
+  position: absolute;
+  @include flex(row, flex-start, flex-start);
+  
+  a {
+    @extend .h2;
+    color: #ff6b6b;
+    text-decoration: none;
+    margin-right: ($base-size * 2);
+    text-align: center;
+    padding: $base-size ($base-size * 2);
+    background: darken($color-dark, 10%);
+    &.active {
+      background: lighten($color-dark, 60%);
+    }
+  }
+}
