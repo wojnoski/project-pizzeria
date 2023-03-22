@@ -13,7 +13,6 @@ class Product{
     thisProduct.initAmountWidget();
     thisProduct.processOrder();
     thisProduct.initAccordion();
-    console.log('New Product: ', thisProduct);
   }
   renderInMenu(){
     const thisProduct = this;
@@ -58,7 +57,6 @@ class Product{
   }
   initOrderForm(){
     const thisProduct = this;
-    console.log('Order form:');
     thisProduct.form.addEventListener('submit', function(event){
       event.preventDefault();
       thisProduct.processOrder();
@@ -76,21 +74,18 @@ class Product{
   }
   processOrder(){
     const thisProduct = this;
-    console.log('Processing');
     const formData = utils.serializeFormToObject(thisProduct.form);
-    console.log('formData', formData);
     /* set price to default */
     let price = thisProduct.data.price;
     /* for every category (param)... */
     for (let paramID in thisProduct.data.params){
       /* determine param value, e.g. paramID = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... } */
       const param = thisProduct.data.params[paramID];
-      console.log(paramID, param);
       /* for every option in this category */
       for (let optionID in param.options){
         /* determine option value, e.g. optionID = 'olives', option = { label: 'Olives', price: 2, default: true } */
         const option = param.options[optionID];
-        console.log('Ingredients: ', optionID, option);
+        /*console.log('Ingredients: ', optionID, option);*/
         /* if there is a param compatible with the category in formData (the same name with paramID) */
         if (formData[paramID] && formData[paramID].includes(optionID)){
           /* if the option is not default */
