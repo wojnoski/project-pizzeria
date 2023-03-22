@@ -49,7 +49,7 @@
     },
     "dependencies": {
         "flatpickr": "^4.6.13",
-        "json-server": "^0.17.1",
+        "json-server": "^0.17.3",
         "rangeslider-pure": "^0.4.11"
     }
 }
