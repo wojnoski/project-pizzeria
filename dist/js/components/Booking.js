@@ -7,6 +7,7 @@ import HourPicker from './HourPicker.js';
 class Booking {
   constructor(element){
     const thisBooking = this;
+    thisBooking.selectedTable = 0;
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
@@ -116,7 +117,7 @@ class Booking {
     for(let table of thisBooking.dom.tables){
       let tableID = table.getAttribute(settings.booking.tableIDAttribute);
       if(!isNaN(tableID)){
-        tableID = parseInt(tableID)
+        tableID = parseInt(tableID);
       }
       if(
         !allAvailable
@@ -140,7 +141,8 @@ class Booking {
     thisBooking.dom.hoursAmount = document.querySelector(select.booking.hoursAmount);
     thisBooking.dom.datePicker = document.querySelector(select.widgets.datePicker.wrapper);
     thisBooking.dom.hourPicker = document.querySelector(select.widgets.hourPicker.wrapper);
-    thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
+    thisBooking.dom.tables = document.querySelectorAll(select.booking.tables);
+    thisBooking.dom.floor = document.querySelector(select.booking.floor);
   }
   initWidgets(){
     const thisBooking = this;
@@ -152,6 +154,28 @@ class Booking {
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
     thisBooking.dom.wrapper.addEventListener('updated', function(){
       thisBooking.updateDOM();
+    });
+    thisBooking.dom.floor.addEventListener('click', function(event){
+      event.preventDefault();
+      if(event.target.classList.contains('table')){
+        const tableID = event.target.getAttribute('data-table');
+        if (thisBooking.selectedTable != 0 && event.target.classList.contains('selected')){
+          event.target.classList.remove('selected');
+          thisBooking.selectedTable = 0;
+        } else if (event.target.classList.contains('booked')){
+          alert('Stolik zajęty');        
+        } else {
+          for(let table of thisBooking.dom.tables){
+            if (table.classList.contains('selected')){
+              table.classList.remove('selected');
+            }
+          }
+          event.target.classList.add('selected');
+          thisBooking.selectedTable = tableID;
+        }
+      }
+      console.log(event.target);
+      console.log(thisBooking.selectedTable);
     });
   }
 }
