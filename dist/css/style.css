@@ -727,7 +727,7 @@ input.error, select.error {
 }
 
 .home-style {
-  margin: 36px auto;
+  margin: 42px auto;
   padding: 72px 48px;
   background: #fff;
   border-bottom: 1px solid #a6a6a6;
@@ -743,16 +743,24 @@ input.error, select.error {
 
 .box {
   border-radius: 4px;
-  height: 100px;
+  height: 120px;
   align-items: center;
-  margin: 1%;
+  margin: 0.5%;
 }
 .box h2 {
-  top: -80px;
-  left: 70px;
+  top: -95px;
+  left: 80px;
   position: relative;
   z-index: 15;
   color: #fff;
+}
+.box h2:hover {
+  transform: scale(1.2);
+  text-decoration: underline;
+  color: #ff6b6b;
+}
+.box a {
+  text-decoration: none;
 }
 
 .order {
@@ -776,18 +784,20 @@ input.error, select.error {
 }
 
 .large {
-  width: 100%;
+  width: 90%;
   background-color: #ff6b6b;
 }
 .large h1 {
   color: #fff;
   position: relative;
-  left: 40%;
+  left: 35%;
+  text-align: justify;
 }
 .large h5 {
   color: #fff;
   position: relative;
-  left: 40%;
+  left: 33%;
+  text-align: justify;
 }
 
 .main-carousel {
@@ -829,6 +839,16 @@ input.error, select.error {
   width: 180px;
   height: 150px;
   margin-bottom: 10px;
+}
+.gallery .image:hover {
+  background: grey;
+  opacity: 0.7;
+  transition: 0.5s linear;
+}
+.gallery .image:hover .fa-solid {
+  color: #ff6b6b;
+  display: block;
+  transition: 2s linear;
 }
 .gallery .image img {
   width: 100%;

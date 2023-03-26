@@ -1,6 +1,6 @@
 /* Error: Undefined variable.
  *   ,
- * 2 |   margin: ($base-size * 3) auto;
+ * 2 |   margin: ($base-size * 3.5) auto;
  *   |            ^^^^^^^^^^
  *   '
  *   src/sass/partials/home.scss 2:12  root stylesheet */
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 2 \2502    margin: ($base-size * 3) auto;\a   \2502             ^^^^^^^^^^\a   \2575 \a   src/sass/partials/home.scss 2:12  root stylesheet";
+  content: "Error: Undefined variable.\a   \2577 \a 2 \2502    margin: ($base-size * 3.5) auto;\a   \2502             ^^^^^^^^^^\a   \2575 \a   src/sass/partials/home.scss 2:12  root stylesheet";
 }

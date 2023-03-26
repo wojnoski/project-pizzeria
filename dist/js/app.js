@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 import {settings, select, classNames} from './settings.js';
 import Product from './components/product.js';
 import Cart from './components/Cart.js';

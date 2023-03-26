@@ -1,10 +1,12 @@
 import {select, templates, settings, classNames} from '../settings.js';
 import {utils} from '../utils.js';
+import {app} from '../app.js';
 
 class Home {
   constructor(element){
     const thisHome = this;
     thisHome.render(element);
+    thisHome.initWidgets();
   }
   render(){
     const thisHome = this;
@@ -14,6 +16,18 @@ class Home {
     thisHome.dom.wrapper = document.querySelector(select.containerOf.homePage);
     thisHome.dom.wrapper.appendChild(thisHome.element);
     console.log(generatedHTML);
+  }
+  initWidgets(){
+    const thisHome = this;
+    thisHome.links = document.querySelectorAll(select.homePage.links);
+    for(let box of thisHome.links){
+      box.addEventListener('click', function(event){
+        const clickedElement = this;
+        event.preventDefault();
+        const boxID = clickedElement.getAttribute('href').replace('#', '');
+        app.activatePage(boxID);
+      })
+    }
   }
 }
 

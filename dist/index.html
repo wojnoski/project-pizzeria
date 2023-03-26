@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pizzeria</title>
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
-  <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="vendor/range-slider.min.css">
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -78,8 +78,8 @@
   <script id="template-home-page" type="text/x-handlebars-template">
     <div class="home-style">
       <div class="box-wrapper">
-        <div class="box order"><img src="/images/1.jpg"><h2>Zamów online</h2></div>
-        <div class="box booking"><img src="/images/2.jpg"><h2>Zarezerwuj stolik</h2></div>
+        <div class="box order"><a href="#order"><img src="/images/1.jpg"><h2>Order online</h2></a></div>
+        <div class="box booking"><a href="#booking"><img src="/images/2.jpg"><h2>Book a table</h2></a></div>
         <div class="box large">
           <h1>Opening hours</h1>
           <h5>Tuesday-Sunday, 12PM-12AM</h5>
@@ -104,17 +104,35 @@
           <div class="img-wrapper"><img src="/images/5.jpg"></div>
           <div class="quote">
             <h4>Great place!</h4>
-            <p>Nonna Alba is amazing, I have to come back to try another pizza!<br><br>~Anna</p>
+            <p>Nonna Alba is amazing, I have to come back<br> to try another pizza!<br><br>~Anna</p>
           </div>
         </div>
       </div>
       <div class="gallery">
-        <div class="image"><img src="/images/6.jpg"></div>
-        <div class="image"><img src="/images/7.jpg"></div>
-        <div class="image"><img src="/images/8.jpg"></div>
-        <div class="image"><img src="/images/9.jpg"></div>
-        <div class="image"><img src="/images/10.jpg"></div>
-        <div class="image"><img src="/images/11.jpg"></div>
+        <div class="image"><img src="/images/6.jpg">
+          <i class="fa-solid fa-heart fa-xl"></i>
+          <i class="fa-solid fa-share-nodes fa-xl"></i>
+        </div>
+        <div class="image"><img src="/images/7.jpg">
+          <i class="fa-solid fa-heart fa-xl"></i>
+          <i class="fa-solid fa-share-nodes fa-xl"></i>
+        </div>
+        <div class="image"><img src="/images/8.jpg">
+          <i class="fa-solid fa-heart fa-xl"></i>
+          <i class="fa-solid fa-share-nodes fa-xl"></i>
+        </div>
+        <div class="image"><img src="/images/9.jpg">
+          <i class="fa-solid fa-heart fa-xl"></i>
+          <i class="fa-solid fa-share-nodes fa-xl"></i>
+        </div>
+        <div class="image"><img src="/images/10.jpg">
+          <i class="fa-solid fa-heart fa-xl"></i>
+          <i class="fa-solid fa-share-nodes fa-xl"></i>
+        </div>
+        <div class="image"><img src="/images/11.jpg">
+          <i class="fa-solid fa-heart fa-xl"></i>
+          <i class="fa-solid fa-share-nodes fa-xl"></i>
+        </div>
       </div>
       <div class="footer"><a href="#" class="instagram">View more on our Instagram</a></div>
     </div>
