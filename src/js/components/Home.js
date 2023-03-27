@@ -1,4 +1,4 @@
-import {select, templates, settings, classNames} from '../settings.js';
+import {select, templates} from '../settings.js';
 import {utils} from '../utils.js';
 import {app} from '../app.js';
 
@@ -26,7 +26,7 @@ class Home {
         event.preventDefault();
         const boxID = clickedElement.getAttribute('href').replace('#', '');
         app.activatePage(boxID);
-      })
+      });
     }
   }
 }
