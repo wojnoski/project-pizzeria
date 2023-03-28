@@ -26,7 +26,6 @@ $base-size: 12px;
   border-radius: $radius;
   height: 120px;
   align-items: center;
-  margin: 0.5%;
     h2 {
       top: -95px;
       left: 80px;
@@ -65,7 +64,7 @@ $base-size: 12px;
 }
 
 .large {
-  width: 90%;
+  width: 100%;
   background-color: $color-main;
   h1 {
     color: $color-light;
